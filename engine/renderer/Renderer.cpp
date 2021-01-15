@@ -3,6 +3,8 @@
 
 #include <glad/glad.h>
 
+#include <tracy/Tracy.hpp>
+
 Renderer::Renderer()
 {
     init_window();
@@ -19,6 +21,8 @@ bool Renderer::check_close() { return m_close; }
 
 void Renderer::begin_frame()
 {
+    FrameMarkStart("Render");
+
     glClearColor(0.5, 0.5, 0.5, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -27,6 +31,8 @@ void Renderer::begin_frame()
 
 void Renderer::end_frame()
 {
+    FrameMarkEnd("Render");
+
     SDL_GL_SwapWindow(m_window);
     window_events();
 
