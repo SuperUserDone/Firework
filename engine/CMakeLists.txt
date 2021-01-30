@@ -4,10 +4,11 @@ find_package(PkgConfig REQUIRED)
 
 pkg_search_module(SDL2 sdl2)
 
-add_compile_definitions(TRACY_ENABLE)
+#add_compile_definitions(TRACY_ENABLE)
 
 set(SOURCES 
     renderer/Renderer.cpp
+    types/Camera.cpp
     types/Material.cpp
     types/Mesh.cpp
 

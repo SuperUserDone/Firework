@@ -51,6 +51,11 @@
         throw std::runtime_error(msg);                                                             \
     }
 
+#define FIREWORK_TIMER_MS                                                                          \
+    std::chrono::duration_cast<std::chrono::milliseconds>(                                         \
+        std::chrono::high_resolution_clock::now().time_since_epoch())                              \
+        .count();
+
 class Logger
 {
 public:
